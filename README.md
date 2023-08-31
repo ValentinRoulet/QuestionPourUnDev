@@ -12,7 +12,7 @@ From repository, run cdm.
 Tap these command :
 - npm install @capacitor/preferences //install dependency
 - npm install @capacitor-community/text-to-speech //install dependency
-- ionic cap sync //will synchrinnize files
+- ionic cap sync //will synchronize files
 - ionic serve //launch application on navigator
 It run on your navigator
 Now use :
