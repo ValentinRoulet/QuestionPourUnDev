@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-progress-bar [value]="progress" color="warning" ></ion-progress-bar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-card [ngClass]="validForm ? 'invisible' : 'affiche' ">
+    <img style="padding: 1em" alt="Question pour un développeur" src="/assets/oui.png" />
+    <ion-card-header>
+      <ion-card-title>Game's form</ion-card-title>
+
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input [(ngModel)]="pseudo" aria-label="Dark input" label="Your pseudo" type="text" label-placement="floating" errorText="Pseudo too short.."  ></ion-input>
+      <label *ngIf="pseudo.length < 3 && pseudo.length != 0" style="color:red;"> <ion-icon name="color-wand-outline"></ion-icon> Pseudo too short</label>
+
+      <ion-list>
+
+        <ion-item>
+          <ion-select [(ngModel)]="difficulty" label="Difficulty" label-placement="floating">
+            <ion-select-option *ngFor="let difficulty of difficulties" value="{{ difficulty }}">{{difficulty}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [(ngModel)]="nbQuestionMax" min="1" max="100" aria-label="Dark input" label="How many questions ?" type="number" label-placement="floating" errorText="Not a number.."></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox [(ngModel)]="memo" labelPlacement="fixed">Remind Me</ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-button (click)="submitForm()" shape="round" color="warning">Lets play <ion-icon slot="end" name="sparkles-outline"></ion-icon> </ion-button>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <div [ngClass]="validForm ? 'affiche' : 'invisible' "
+       class="container">
+    <p> Let's begin {{pseudo}}</p>
+    <h5>QUESTION {{ nbQuestion + 1 }}</h5>
+    <br />
+    <ion-text class="question" [innerHTML]="question"></ion-text>
+    <br />
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 *ngFor="let solution of solutions">
+          <ion-button [attr.color]="colorButton(solution)" expand="block" (click)="pushSolution(solution)" [class.button-disabled]="answer.length > 0" [innerHTML]="solution"></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button expand="block" color="warning" *ngIf="answer.length > 0" (click)="nextQuestion()">{{ endGame? 'SCORE':'Next Question'}}</ion-button>
+  </div>
+
+</ion-content>
+
+

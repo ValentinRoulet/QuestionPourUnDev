@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS score(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user TEXT, 
+    score INTEGER
+);
+INSERT or IGNORE INTO score(id, user, score) VALUES (1, 'oui', 6);
+INSERT or IGNORE INTO score(id, user, score) VALUES (2, 'Martin Matin', 9);
+INSERT or IGNORE INTO score(id, user, score) VALUES (3, 'Mesrine', 5);
+INSERT or IGNORE INTO score(id, user, score) VALUES (4, 'Val', 6);
