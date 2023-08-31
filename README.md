@@ -1,4 +1,5 @@
-# QuestionPourUnDev
+<p align="center"><br><img src="[https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png](https://github.com/ValentinRoulet/QuestionPourUnDev/assets/84391481/82689245-7098-42e6-8901-011bff2e8d19)" width="128" height="128" /></p>
+![ic_launcher](https://github.com/ValentinRoulet/QuestionPourUnDev/assets/84391481/82689245-7098-42e6-8901-011bff2e8d19)
 
 ## Needs
 - IDE
